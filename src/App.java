@@ -29,6 +29,8 @@ public class App {
                 joueur1(lignes, nombreEntier);
                 execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
 
+                //Rajout joueur 2 plus modif tout en bas de nombreEntier en nombreEnti changer les valeurs;
+
                 System.out.print("Entrez une valeur : ");
                 int nombreEntie = scanner.nextInt();
                 joueur2(lignes, nombreEntie);
