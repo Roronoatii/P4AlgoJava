@@ -1,3 +1,5 @@
+package class;
+
 public class Score {
     private int score;
     private int joueur;

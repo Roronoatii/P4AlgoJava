@@ -1,4 +1,4 @@
-package p4;
+package class;
 
 
 import java.util.Scanner;
