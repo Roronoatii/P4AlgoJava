@@ -1,3 +1,6 @@
+import p4.*;
+
+
 public class Tableau {
     
     public static void main(String[] args) throws Exception {
