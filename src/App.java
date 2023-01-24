@@ -75,6 +75,10 @@ public class App {
             joueur1(lignes, nombreEntier);
             execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
             // joueur1(lignes, nombreEntier);
+            System.out.print("Entrez une valeur : ");
+                int nombreEntie = scanner.nextInt();
+                joueur2(lignes, nombreEntie);
+                execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
         }
         scanner.close();
         System.out.println("Done");
