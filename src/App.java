@@ -19,27 +19,30 @@ public class App {
 
 
         Scanner scanner = new Scanner(System.in);
-        int w = 30;
-        while (w == 30) {
-            
-            
-            System.out.print("Entrez une valeur : ");
-            int nombreEntier = scanner.nextInt();
+        boolean w = true;
+        while (w) {
 
-            if(nombreEntier == 10){
-                w = 20;
-                break;
+            for(int u =0;u<42;u++){
+
+                System.out.print("Entrez une valeur : ");
+                int nombreEntier = scanner.nextInt();
+                joueur1(lignes, nombreEntier);
+                execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+
+                System.out.print("Entrez une valeur : ");
+                int nombreEntie = scanner.nextInt();
+                joueur2(lignes, nombreEntie);
+                execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+
+                if(nombreEntier == 10){
+                    w = false;
+                }
+
             }
-            // Code à exécuter avec la variable 'nombreEntier'
-            joueur1(lignes, nombreEntier);
-            execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
-
-
-            // joueur1(lignes, nombreEntier);
 
         }
         scanner.close();
-        System.out.println("Done");
+        
         // Scanner scanner = new Scanner(System.in);
 
         // scanner = new Scanner(System.in);
@@ -139,12 +142,12 @@ public class App {
         
     }
 
-    public static void joueur2(int[][] lignes,int nombreEntier) {
+    public static void joueur2(int[][] lignes,int nombreEntie) {
 
         for (int a = 5; a > 0; a--) {
             
-            if(lignes[a][nombreEntier] == 0 && lignes[a][nombreEntier] != 1 && lignes[a][nombreEntier] != 2){
-                lignes[a][nombreEntier] = 2;
+            if(lignes[a][nombreEntie] == 0 && lignes[a][nombreEntie] != 1 && lignes[a][nombreEntie] != 2){
+                lignes[a][nombreEntie] = 2;
                 
                 break;
                 
@@ -152,11 +155,6 @@ public class App {
         }
         
     }
-
-
-
-
-
 
 }
 
