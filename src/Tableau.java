@@ -1,4 +1,5 @@
 public class Tableau {
+    
     public static void main(String[] args) throws Exception {
         // déclaration du tableau qui représente la grille de Puissance 4
          int[][] grille = new int[6][7];
@@ -11,11 +12,13 @@ public class Tableau {
          }
  
          // affichage de la grille
+         System.out.println("\n-1--2--3--4--5--6--7-");
          for (int i = 0; i < 6; i++) {
              for (int j = 0; j < 7; j++) {
-                 System.out.print(grille[i][j] + " ");
+                System.out.print("|"+grille[i][j] + "|");
+                
              }
-             System.out.println();
+             System.out.println("\n ------------------- ");
          }
      }
 }
