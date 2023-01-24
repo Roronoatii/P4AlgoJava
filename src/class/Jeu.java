@@ -1,4 +1,4 @@
-package class;
+package Class;
 
 
 import java.util.Scanner;
@@ -18,6 +18,7 @@ public class Jeu {
         pion.setColonne(colonne);
         pion.setLigne(0);
         placerPion(pion, grille);
+        sc.close();
     }
 
     //Condition de victoire

@@ -1,11 +1,11 @@
-package class;
+package Class;
 
-public class Joueur {
+public class Player {
 
     private String nom;
     private int couleur;
 
-    public Joueur(String nom, int couleur) {
+    public void Joueur(String nom, int couleur) {
         this.nom = nom;
         this.couleur = couleur;
     }

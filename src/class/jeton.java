@@ -1,5 +1,8 @@
-package class;
+package Class;
+import Class.Player;
 
 public class jeton {
-    
+    Player JetonColor = new Player();
+
+    JetonColor = getCouleur();
 }

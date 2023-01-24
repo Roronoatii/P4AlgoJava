@@ -1,4 +1,4 @@
-package class;
+package Class;
 
 public class Score {
     private int score;
