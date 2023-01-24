@@ -1,88 +1,162 @@
+import java.util.Arrays;
 import java.util.Scanner;
-
-import Class.jeton;
-
 
 public class App {
 
-    public static void main (String[] args){
-        int userchoice;
-        do {
-            printMenu();
-            userchoice = getMenuChoice();
-            switch (userchoice){
-                case 1:
-                    System.out.println("singleplayer");
-                    break;
-                case 2:
-                    System.out.println("multiplayer");
 
-                    break;
-                case 3:
-                    System.out.println("display");
+    public static void main(String[] args) throws Exception {
 
-                    break;
-                case 4:
-                    System.out.println("Exiting...");
-                    break;
-                default:
-                    System.out.println("Invalid Input");
+        int[] ligne1 = {0,0,0,0,0,0,0};
+        int[] ligne2 = {0,0,0,0,0,0,0};
+        int[] ligne3 = {0,0,0,0,0,0,0};
+        int[] ligne4 = {0,0,0,0,0,0,0};
+        int[] ligne5 = {0,0,0,0,0,0,0};
+        int[] ligne6 = {0,0,0,0,0,0,0};
 
-            }
-        } while (userchoice != 5);
-    }
-    public static void printMenu(){
-        System.out.println("--Menu--");
-        System.out.println("1. SinglePlayer");
-        System.out.println("2. Multiplayer");
-        System.out.println("3. Display Top 10");
-        System.out.println("4. Exit");
-    }
+        int[][] lignes = {ligne1, ligne2, ligne3, ligne4, ligne5, ligne6};
 
-    public static int getMenuChoice() {
+        execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+
+
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter your choice: ");
-        int choice = scanner.nextInt();
-        return choice;
-    }
-    public static void closeScanner(Scanner scanner) {
-        scanner.close();
-    }
-    
-    // public static void grid(String[] args) throws Exception {
+        int w = 30;
+        while (w == 30) {
+            
+            
+            System.out.print("Entrez une valeur : ");
+            int nombreEntier = scanner.nextInt();
 
-    //     // déclaration du tableau qui représente la grille de Puissance 4
-    //      String[][] grille = new String[6][7]; 
-    //      // initialisation de la grille avec des valeurs de 0 (aucune pièce jouée)
-    //      for (int i = 0; i < 6; i++) {
-    //          for (int j = 0; j < 7; j++) {
-    //              grille[i][j] = " ";
-    //              grille[5][2] = "@";
-    //              grille[5][3] = "=";            }
-    //      }
- 
-    //      // affichage de la grille
-    //      System.out.println("\n-1--2--3--4--5--6--7-");
-    //      for (int i = 0; i < 6; i++) {
-    //          for (int j = 0; j < 7; j++) {
-    //             System.out.print("|"+grille[i][j] + "|");
+            if(nombreEntier == 10){
+                w = 20;
+                break;
+            }
+            // Code à exécuter avec la variable 'nombreEntier'
+            joueur1(lignes, nombreEntier);
+            execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+
+
+            // joueur1(lignes, nombreEntier);
+
+        }
+        scanner.close();
+        System.out.println("Done");
+        // Scanner scanner = new Scanner(System.in);
+
+        // scanner = new Scanner(System.in);
+        // System.out.print("Entrez un nombre entier : ");
+        // int nombreEntier = scanner.nextInt();
+        // scanner.close();
+        
+        // for (int i = 5; i > 0; i--) {
+            
+        //     if(lignes[i][nombreEntier] == 0 && lignes[i][nombreEntier] != 1 && lignes[i][nombreEntier] != 2){
+        //         lignes[i][nombreEntier] = 1;
                 
-    //          }
-    //          System.out.println("\n---------------------");
-    //      }
-    //      System.out.println(grille[2][3]);
-    //  }
-    
+        //         break;
+                
+        //     }
+        // }
+
+
+
+        // for(int y =0 ;y<4;y++){
+        // }
+
+            // joueur1(lignes);
+            // execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+
+            // joueur1(lignes);
+            // execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+
+        
+
+        // joueur1(lignes);
+
+        // execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+
+       
+        // Fonction d'un tour 1er joueur
+
+        // Scanner sc = new Scanner(System.in);
+        // System.out.print("Entrez un nombre entier : ");
+        // int nombreEntier = sc.nextInt();
+        // sc.close();
+        
+        // for (int i = 5; i > 0; i--) {
+            
+        //     if(lignes[i][nombreEntier] == 0 && lignes[i][nombreEntier] != 1 && lignes[i][nombreEntier] != 2){
+        //         lignes[i][nombreEntier] = 1;
+                
+        //         break;
+                
+        //     }
+        // }
+
+        // execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+
+        // Execute 2eme joueur
+
+        // Scanner sca = new Scanner(System.in);
+        // System.out.print("Entrez un nombre entier : ");
+        // int nombreEntier2 = sca.nextInt();
+        
+
+        
+        // for (int a = 5; a > 0; a--) {
+            
+        //     if(lignes[a][nombreEntier] == 0 && lignes[a][nombreEntier] != 1 && lignes[a][nombreEntier] != 2){
+        //         lignes[a][nombreEntier2] = 2;
+        //         sca.close();
+        //         break;
+        //     }
+        // }
+
+        // execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+
+    }
+
+
+    public static void execTab(int[] ligne1, int[] ligne2, int[] ligne3, int[] ligne4, int[] ligne5, int[] ligne6) {
+        System.out.println(Arrays.toString(ligne1));
+        System.out.println(Arrays.toString(ligne2));
+        System.out.println(Arrays.toString(ligne3));
+        System.out.println(Arrays.toString(ligne4));
+        System.out.println(Arrays.toString(ligne5));
+        System.out.println(Arrays.toString(ligne6));
+    }
+
+    public static void joueur1(int[][] lignes,int nombreEntier) {
+
+        for (int i = 5; i > -1; i--) {
+            
+            if(lignes[i][nombreEntier] == 0 && lignes[i][nombreEntier] != 1 && lignes[i][nombreEntier] != 2){
+                lignes[i][nombreEntier] = 1;
+                
+                break;
+                
+            }
+        }
+        
+    }
+
+    public static void joueur2(int[][] lignes,int nombreEntier) {
+
+        for (int a = 5; a > 0; a--) {
+            
+            if(lignes[a][nombreEntier] == 0 && lignes[a][nombreEntier] != 1 && lignes[a][nombreEntier] != 2){
+                lignes[a][nombreEntier] = 2;
+                
+                break;
+                
+            }
+        }
+        
+    }
+
+
+
+
+
+
 }
-//     public static void scan(String[] args Menu) {
-//         String userInput = getUserInput();
-//         System.out.println("You entered: " + userInput);
-//     }
-//     public static String getUserInput() {
-//         Scanner scanner = new Scanner(System.in);
-//         System.out.print("Enter a string: ");
-//         String input = scanner.nextLine();
-//         scanner.close();
-//         return input;
-//     }
-// }
+
