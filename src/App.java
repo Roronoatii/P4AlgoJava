@@ -20,7 +20,10 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
         boolean w = true;
+        int nombreCase =0;
         while (w) {
+
+            
 
             for(int u =0;u<42;u++){
 
@@ -28,6 +31,7 @@ public class App {
                 int nombreEntier = scanner.nextInt();
                 joueur1(lignes, nombreEntier);
                 execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+                nombreCase++;
 
                 //Rajout joueur 2 plus modif tout en bas de nombreEntier en nombreEnti changer les valeurs;
 
@@ -35,15 +39,23 @@ public class App {
                 int nombreEntie = scanner.nextInt();
                 joueur2(lignes, nombreEntie);
                 execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+                nombreCase++;
 
-                if(nombreEntier == 10){
+                if( nombreCase >= 42){
+                    System.out.println("Personne n'a gagné ! ");
                     w = false;
+                    break;
+                    
                 }
 
             }
+            
 
         }
+
+        
         scanner.close();
+        
         
         // Scanner scanner = new Scanner(System.in);
 
@@ -137,8 +149,11 @@ public class App {
             if(lignes[i][nombreEntier] == 0 && lignes[i][nombreEntier] != 1 && lignes[i][nombreEntier] != 2){
                 lignes[i][nombreEntier] = 1;
                 
+                
                 break;
                 
+            }else{
+                System.out.println("Dommage tu n'avais qu'a mieux regarder tu passes ton tour !");
             }
         }
         
@@ -146,13 +161,16 @@ public class App {
 
     public static void joueur2(int[][] lignes,int nombreEntie) {
 
-        for (int a = 5; a > 0; a--) {
+        for (int a = 5; a > -1; a--) {
+            
             
             if(lignes[a][nombreEntie] == 0 && lignes[a][nombreEntie] != 1 && lignes[a][nombreEntie] != 2){
                 lignes[a][nombreEntie] = 2;
                 
                 break;
                 
+            }else{
+                System.out.println("Dommage tu n'avais qu'a mieux regarder tu passes ton tour !");
             }
         }
         
