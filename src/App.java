@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-import javax.sound.midi.MidiFileFormat;
 
 import java.util.Arrays;
 
@@ -113,8 +112,9 @@ public class App {
                 recupligne = i;
                 try{
                     detectWin(lignes, nombreEntier, recupligne);
+                    System.out.println(recupligne + recupligne);
                 }catch(Exception e){
-                    System.out.println("Test");
+                    System.out.println("j1");
                 }
                 break;
             }
@@ -128,8 +128,9 @@ public class App {
                 recupligne = a;
                 try{
                 detectWin(lignes, nombreEntier, recupligne);
+                
                 }catch(Exception e){
-                    System.out.println("Test");
+                    System.out.println("J2");
                 };
                 break;
             }
@@ -141,7 +142,7 @@ public class App {
     public static void detectWin(String[][]lignes, int nombreEntier,int recupligne){
 
         String caseCheck = lignes[recupligne][nombreEntier];
-        int checkIncr;
+        int checkIncr = 1;
         String counterWin;
 
         String diagHautGauche = lignes[recupligne-checkIncr][nombreEntier-checkIncr];
@@ -153,9 +154,21 @@ public class App {
         String diagBasDroite = lignes[recupligne+checkIncr][nombreEntier+checkIncr];
 
         //Bas gauche grille
+        System.out.println(midDroite);
         if (recupligne >= 3 && nombreEntier <= 3){
-            while(caseCheck.equals(midDroite)){
-
+            if (caseCheck.equals(midDroite)){
+                System.out.println("la");
+                for(int j = 1; j < 4; j ++){
+                    j = checkIncr;
+                    System.out.println("ici");
+                    if (checkIncr == 3){
+                        //something with counterWin
+    
+                    }
+                    else if (checkIncr == 4){
+                        System.out.println("You Win !");
+                    }
+                }
             }
             while(caseCheck.equals(diagHautDroite)){
 
@@ -182,9 +195,7 @@ public class App {
             System.out.println(midDroite);
             
         }
-        if(){
-
-        }
+        
             
 
 
