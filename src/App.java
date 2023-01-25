@@ -1,12 +1,16 @@
 import java.util.Scanner;
+
+import javax.sound.midi.MidiFileFormat;
+
 import java.util.Arrays;
 
-import Class.jeton;
 
 
 public class App {
 
+    
     public static void main (String[] args) throws Exception{
+        
         int userchoice;
         do {
             printMenu();
@@ -62,23 +66,32 @@ public class App {
         String[][] lignes = {ligne1, ligne2, ligne3, ligne4, ligne5, ligne6};
         execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
 
+        int recupligne = 3;
+
         Scanner scanner = new Scanner(System.in);
-        int w = 30;
-        while (w == 30) {
-            System.out.print("Entrez une valeur : ");
-            int nombreEntier = scanner.nextInt();
-            if(nombreEntier == 10){
-                w = 20;
-                break;
-            }
-            // Code à exécuter avec la variable 'nombreEntier'
-            joueur1(lignes, nombreEntier);
-            execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
-            // joueur1(lignes, nombreEntier);
-            System.out.print("Entrez une valeur : ");
-                int nombreEntie = scanner.nextInt();
-                joueur2(lignes, nombreEntie);
+        boolean w = true;
+        while (w) {
+
+            for(int u =0;u<42;u++){
+
+                System.out.print("Entrez une valeur : ");
+                int nombreEntier = scanner.nextInt();
+                joueur1(lignes, nombreEntier,recupligne);
                 execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+
+                //Rajout joueur 2 plus modif tout en bas de nombreEntier en nombreEnti changer les valeurs;
+
+                System.out.print("Entrez une valeur : ");
+                int nombreEntie = scanner.nextInt();
+                joueur2(lignes, nombreEntie ,recupligne);
+                execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
+
+                if(nombreEntier == 10){
+                    w = false;
+                }
+
+            }
+
         }
         scanner.close();
         System.out.println("Done");
@@ -93,33 +106,115 @@ public class App {
         System.out.println(Arrays.toString(ligne6));
     }
 
-    public static void joueur1(String[][] lignes,int nombreEntier) {
-
-        for (int i = 5; i > -1; i--) {
-            
+    public static void joueur1(String[][] lignes,int nombreEntier, int recupligne) throws Exception {
+        for (int i = 5; i > -1; i--) {  
             if(lignes[i][nombreEntier] == " " && lignes[i][nombreEntier] != "@" && lignes[i][nombreEntier] != "="){
                 lignes[i][nombreEntier] = "@";
+                recupligne = i;
+                try{
+                    detectWin(lignes, nombreEntier, recupligne);
+                }catch(Exception e){
+                    System.out.println("Test");
+                }
                 break;
-                
             }
         }
-        
     }
 
-    public static void joueur2(String[][] lignes,int nombreEntier) {
-
+    public static void joueur2(String[][] lignes,int nombreEntier,int recupligne) throws Exception{
         for (int a = 5; a > 0; a--) {
-            
             if(lignes[a][nombreEntier] == " " && lignes[a][nombreEntier] != "@" && lignes[a][nombreEntier] != "="){
                 lignes[a][nombreEntier] = "=";
+                recupligne = a;
+                try{
+                detectWin(lignes, nombreEntier, recupligne);
+                }catch(Exception e){
+                    System.out.println("Test");
+                };
                 break;
-                
             }
         }
-        
     }
 
 //--------------------------------------
+
+    public static void detectWin(String[][]lignes, int nombreEntier,int recupligne){
+
+        String caseCheck = lignes[recupligne][nombreEntier];
+        int checkIncr;
+        String counterWin;
+
+        String diagHautGauche = lignes[recupligne-checkIncr][nombreEntier-checkIncr];
+        String diagHautDroite = lignes[recupligne-checkIncr][nombreEntier+checkIncr];
+        String midGauche = lignes[recupligne][nombreEntier-checkIncr];
+        String midDroite = lignes[recupligne][nombreEntier+checkIncr];
+        String diagBasGauche = lignes[recupligne+checkIncr][nombreEntier-checkIncr];
+        String badMid = lignes[recupligne+checkIncr][nombreEntier];
+        String diagBasDroite = lignes[recupligne+checkIncr][nombreEntier+checkIncr];
+
+        //Bas gauche grille
+        if (recupligne >= 3 && nombreEntier <= 3){
+            while(caseCheck.equals(midDroite)){
+
+            }
+            while(caseCheck.equals(diagHautDroite)){
+
+            }
+
+        }
+        //bas droite grille
+        if (recupligne >= 3 && nombreEntier >= 3){
+
+
+        }
+        //haut gauche grille
+        if (recupligne <= 2 && nombreEntier <= 3){
+
+        }
+        //haut droit grille
+        if (recupligne <= 2 && nombreEntier >= 3){
+
+        }
+
+        if(caseCheck == diagBasGauche){
+            // System.out.println(nombreEntier);
+            // System.out.println(recupligne);
+            System.out.println(midDroite);
+            
+        }
+        if(){
+
+        }
+            
+
+
+                // for(int c=1;c<3;c++){
+
+                //     if(diagHautGauche == caseCheck){
+
+                //         diagHautGauche = lignes[recupligne-1-c][nombreEntier-1-c];
+                        
+                //         if(c == 3){
+                //             System.out.println("Victoire de"+caseCheck);
+                //         }
+                //     }else{
+
+                        
+                //         break;
+                //     }
+
+                // }
+            
+
+        
+    }
+
+
+
+
+
+
+/*
 import java.util.Scanner;
 public class Main {
     static int size;
@@ -317,7 +412,7 @@ public class Main {
     }
 }
 
-
+*/
 
 
 }
