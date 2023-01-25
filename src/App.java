@@ -156,24 +156,28 @@ public class App {
         //Bas gauche grille
         System.out.println(midDroite);
         if (recupligne >= 3 && nombreEntier <= 3){
-            if (caseCheck.equals(midDroite)){
-                System.out.println("la");
+            if (caseCheck== midDroite){
                 for(int j = 1; j < 4; j ++){
                     j = checkIncr;
-                    System.out.println("ici");
                     if (checkIncr == 3){
+                        System.out.println("work");
                         //something with counterWin
-    
                     }
                     else if (checkIncr == 4){
                         System.out.println("You Win !");
                     }
                 }
             }
-            while(caseCheck.equals(diagHautDroite)){
+            // <while(caseCheck.equals(midDroite)){
+            //     checkIncr ++;
+            //     if (checkIncr == 3){
+            //         System.out.println("work");
+            //         //something with counterWin
+            //     }else if (checkIncr == 4){
+            //         System.out.println("You Win !");
+            //     }
 
-            }
-
+            // }
         }
         //bas droite grille
         if (recupligne >= 3 && nombreEntier >= 3){
