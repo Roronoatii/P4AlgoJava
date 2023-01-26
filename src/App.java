@@ -74,10 +74,13 @@ public class App {
                                 grid(args);
                                 break;
                             case 2:
+                                grid(args);
                                 break;
                             case 3:
+                                grid(args);
                                 break;
                             case 4:
+                                grid(args);
                                 return;
                         }
                     } else {
@@ -156,8 +159,8 @@ public class App {
                 while (true) {
                     System.out.print("Joueur 1, Entrez une valeur : ");
                     if (scanner.hasNextInt()) {
-                        int colonneJoueur1 = scanner.nextInt() - 1;
-                        if (colonneJoueur1 < 0 || colonneJoueur1 > 6) {
+                        int colonneJoueur1 = scanner.nextInt();
+                        if (colonneJoueur1 < 1 || colonneJoueur1 > 7) {
                             System.out.println("Entre un chiffre entre 1 et 7");
                         } else {
                             joueur1(lignes, colonneJoueur1, recupligne);
@@ -174,8 +177,8 @@ public class App {
                     // changer les valeurs;
                     System.out.print("Joueur 2, Entrez une valeur : ");
                     if (scanner.hasNextInt()) {
-                        int colonneJoueur2 = scanner.nextInt() - 1;
-                        if (colonneJoueur2 < 0 || colonneJoueur2 > 6) {
+                        int colonneJoueur2 = scanner.nextInt();
+                        if (colonneJoueur2 < 1 || colonneJoueur2 > 7) {
                             System.out.println("Entre un chiffre entre 1 et 7");
                         } else {
                             joueur2(lignes, colonneJoueur2, recupligne);
@@ -204,7 +207,7 @@ public class App {
     }
 
     public static void joueur1(String[][] lignes, int colonneJoueur1, int recupligne) throws Exception {
-        for (int i = 5; i >= 0; i--) {
+        for (int i = 6; i >= 0; i--) {
             if (lignes[i][colonneJoueur1] == " " && lignes[i][colonneJoueur1] != "@"
                     && lignes[i][colonneJoueur1] != "=") {
                 lignes[i][colonneJoueur1] = "@";
@@ -216,7 +219,7 @@ public class App {
     }
 
     public static void joueur2(String[][] lignes, int colonneJoueur2, int recupligne) throws Exception {
-        for (int a = 5; a > 0; a--) {
+        for (int a = 6; a > 0; a--) {
             if (lignes[a][colonneJoueur2] == " " && lignes[a][colonneJoueur2] != "@"
                     && lignes[a][colonneJoueur2] != "=") {
                 lignes[a][colonneJoueur2] = "=";
@@ -239,6 +242,11 @@ public class App {
                 if(midDroite == symbole){
                     nombreALaSuite++;
                     // System.out.println(midDroite);
+                    if (nombreALaSuite == 3){
+                        System.out.println("bot saved");
+                        // recupere nombrealasuite = 3, recupligne si supérieur a 1 donc save et colonnejoueur (centre du triple) just check +2 ou -2 selon la position
+                        break;
+                    }
                     if(nombreALaSuite == 4){
                         System.out.println("Vous avez gagné!");
                         break;
