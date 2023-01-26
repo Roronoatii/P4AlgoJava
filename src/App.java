@@ -147,55 +147,33 @@ public class App {
         int checkIncr = 1;
         String counterWin;
         
-        String diagHautGauche = lignes[recupligne-checkIncr][nombreEntier-checkIncr];
-        String diagHautDroite = lignes[recupligne-checkIncr][nombreEntier+checkIncr];
-        String midGauche = lignes[recupligne][nombreEntier-checkIncr];
-        String midDroite = lignes[recupligne][nombreEntier+checkIncr];
-        String diagBasGauche = lignes[recupligne+checkIncr][nombreEntier-checkIncr];
-        String badMid = lignes[recupligne+checkIncr][nombreEntier];
-        String diagBasDroite = lignes[recupligne+checkIncr][nombreEntier+checkIncr];
+        String diagHautGauche = lignes[recupligne-1][nombreEntier-1];
+        String diagHautDroite = lignes[recupligne-1][nombreEntier+1];
+        String midGauche = lignes[recupligne][nombreEntier-1];
+        String midDroite = lignes[recupligne][nombreEntier+1];
+        String diagBasGauche = lignes[recupligne+1][nombreEntier-1];
+        String badMid = lignes[recupligne+1][nombreEntier];
+        String diagBasDroite = lignes[recupligne+1][nombreEntier+1];
 
         //Bas gauche grille
-        if (recupligne >= 3 && nombreEntier <= 3){
-            System.out.println("truc");
-            if (caseCheck.equals(midDroite)){
-                for(int j = 1; j < 4; j ++){
-                    j = checkIncr;
-                    if (checkIncr == 3){
-                        System.out.println("work");
-                        //something with counterWin
-                    }
-                    if (checkIncr == 4){
-                        System.out.println("You Win !");
-                    }
-                }
+        if (recupligne > 2 && nombreEntier < 3){
+            System.out.println(midDroite);
+            System.out.println("test");
             }
-            System.out.println(checkIncr);
-
-            // while(caseCheck.equals(midDroite)){
-            //     checkIncr ++;
-            //     if (checkIncr == 3){
-            //         System.out.println("work");
-            //         //something with counterWin
-            //     }else if (checkIncr == 4){
-            //         System.out.println("You Win !");
-            //     }
-
-            // }
         }
         //bas droite grille
-        if (recupligne >= 3 && nombreEntier >= 3){
+        // if (recupligne >= 3 && nombreEntier >= 3){
 
 
-        }
+        // }
         //haut gauche grille
-        if (recupligne <= 2 && nombreEntier <= 3){
+        // if (recupligne <= 2 && nombreEntier <= 3){
 
-        }
+        // }
         //haut droit grille
-        if (recupligne <= 2 && nombreEntier >= 3){
+        // if (recupligne <= 2 && nombreEntier >= 3){
 
-        }
+        // }
         
             
 
@@ -427,5 +405,5 @@ public class Main {
 */
 
 
-}
+
 
