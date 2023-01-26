@@ -76,23 +76,22 @@ public class App {
                         int difficultyLvl = scanner.nextInt();
                         switch (difficultyLvl) {
                             case 1:
-                            grid(args);
-                            break;
-                        case 2:
-                            break;
+                                grid(args);
+                                break;
+                            case 2:
+                                break;
                             case 3:
-                            break;
+                                break;
                             case 4:
-                            break;
+                                break;
                         }
                     } else {
-                        System.out.println("Entre un chiffre entre 1 et 4");
-                        scanner.next();
+                            System.out.println("Entre un chiffre entre 1 et 4");
+                            scanner.next();
                     }
                 }
             }
         }
-
     }
 
     public static void multiplayerMenu() {
