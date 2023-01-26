@@ -30,5 +30,22 @@ public class Joueur {
     public void setSymbole(String symbole) {
         this.symbole = symbole; // setter symbole de la classe Joueur
     }
+    public void SymboleCouleur() {
+        String symbole = this.getSymbole();
+        String couleur = this.getCouleur();
     
+        if (couleur.equals("Rouge")) {
+            String joueurColorSymb = "\033[31m" + symbole + "\033[0m";
+        } else if (couleur.equals("Vert")) {
+            String joueurColorSymb = "\033[32m" + symbole + "\033[0m";
+        } else if (couleur.equals("Jaune")) {
+            String joueurColorSymb = "\033[33m" + symbole + "\033[0m";
+        } else if (couleur.equals("Bleu")) {
+            String joueurColorSymb = "\033[34m" + symbole + "\033[0m";
+        } else if (couleur.equals("Violet")) {
+            String joueurColorSymb = "\033[35m" + symbole + "\033[0m";
+        } else if (couleur.equals("Cyan")) {
+            String joueurColorSymb = "\033[36m" + symbole + "\033[0m";
+        }
+    }
 }
