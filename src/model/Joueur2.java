@@ -1,13 +1,13 @@
 package model;
 
-public class Joueur {
+public class Joueur2 {
     // Attributs de la classe Joueur (nom, couleur, symbole) 
     private String nom;
     private String couleur;
     private String symbole;
 
     // Constructeur de la classe Joueur
-    public Joueur(String nom, String couleur, String symbole) {
+    public Joueur2(String nom, String couleur, String symbole) {
         this.nom = nom;
         this.couleur = couleur;
         this.symbole = symbole;
