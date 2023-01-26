@@ -3,6 +3,7 @@ import java.rmi.server.ExportException;
 import java.text.BreakIterator;
 import java.util.Arrays;
 import model.Joueur;
+import model.Joueur2;
 
 
 public class App {
@@ -21,7 +22,7 @@ public class App {
                     //grid(args);
                     break;
                 case 2:
-                    System.out.println("multiplayer");
+                    multiplayerMenu(args);
 
                     break;
                 case 3:
@@ -55,11 +56,11 @@ public class App {
         System.out.println("4. \033[34mBleu\033[0m");
         System.out.println("5. \033[35mViolet\033[0m");
         System.out.println("6. \033[36mCyan\033[0m");
-        int color = scanner.nextInt();
+        String color = scanner.nextLine();
         System.out.println("Choisis un symbole");
         String logo = scanner.nextLine();
         Joueur joueur = new Joueur(nom, color, logo);
-        System.out.println(joueur + "Choisis le niveau de difficulté");
+        System.out.println(joueur.getNom() + "Choisis le niveau de difficulté");
         int difficultyLvl = scanner.nextInt();
         switch(difficultyLvl){
             case 1:
@@ -74,8 +75,35 @@ public class App {
         }
 
     }
-    public static void multiplayerMenu(){
+    public static void multiplayerMenu(String[] args)throws Exception{
         System.out.println("---Multiplayer---");
+        System.out.println("Joueur 1, Entre un nom : ");
+        String nom = scanner.nextLine();
+        System.out.println("pick your color : ");
+        System.out.println("1. \033[31mRouge\033[0m");
+        System.out.println("2. \033[32mVert\033[0m");
+        System.out.println("3. \033[33mJaune\033[0m");
+        System.out.println("4. \033[34mBleu\033[0m");
+        System.out.println("5. \033[35mViolet\033[0m");
+        System.out.println("6. \033[36mCyan\033[0m");
+        String color = scanner.nextLine();
+        System.out.println("Choisis un symbole");
+        String logo = scanner.nextLine();
+        Joueur joueur1 = new Joueur(nom, color, logo);
+     
+        System.out.println("Joueur 2, Entre un nom : ");
+        String nom2 = scanner.nextLine();
+        System.out.println("pick your color : ");
+        System.out.println("1. \033[31mRouge\033[0m");
+        System.out.println("2. \033[32mVert\033[0m");
+        System.out.println("3. \033[33mJaune\033[0m");
+        System.out.println("4. \033[34mBleu\033[0m");
+        System.out.println("5. \033[35mViolet\033[0m");
+        System.out.println("6. \033[36mCyan\033[0m");
+        String color2 = scanner.nextLine();
+        System.out.println("Choisis un symbole");
+        String logo2 = scanner.nextLine();
+        Joueur2 joueur2 = new Joueur2(nom2, color2, logo2);
         //String joueur = scanner.nextLine();
     }
     public static int getMenuChoice() {
