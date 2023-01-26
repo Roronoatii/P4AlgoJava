@@ -1,10 +1,7 @@
 import java.util.Scanner;
-import javax.xml.transform.Source;
-import java.text.BreakIterator;
 import java.util.Arrays;
 import model.Joueur;
 import model.Joueur2;
-import model.Pion;
 
 public class App {
 
