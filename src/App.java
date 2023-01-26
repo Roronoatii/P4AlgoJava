@@ -145,11 +145,9 @@ public class App {
         int nombreALaSuite =1;
 
         String midDroite = lignes[recupligne][colonneJoueur1+1+(numberOfCheck)];
+        String diagHautDroite = lignes[recupligne-1+(-numberOfCheck)][colonneJoueur1+1+(numberOfCheck)];
 
         if(recupligne >3 && colonneJoueur1 <=4){
-
-            System.out.println(symbole);
-
 
             for(int v = 0;v<3;v++){
                 
@@ -157,7 +155,27 @@ public class App {
 
                     nombreALaSuite++;
 
-                    System.out.println(midDroite);
+                    // System.out.println(midDroite);
+
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+
+                    numberOfCheck++;
+                }
+            }
+
+            numberOfCheck =0;
+            nombreALaSuite =1;
+
+            for(int v = 0;v<3;v++){
+
+                if(diagHautDroite == symbole){
+
+                    nombreALaSuite++;
+
+                    System.out.println(diagHautDroite);
 
                     if(nombreALaSuite == 4){
                         System.out.println("Vous avez gagné!");
