@@ -3,13 +3,13 @@ package model;
 public class Joueur {
     // Attributs de la classe Joueur (nom, couleur, symbole) 
     private String nom;
-    private int couleur;
+    private String couleur;
     private String symbole;
 
     // Constructeur de la classe Joueur
-    public Joueur(String nom, int couleur, String symbole) {
+    public Joueur(String nom, String color, String symbole) {
         this.nom = nom;
-        this.couleur = couleur;
+        this.couleur = color;
         this.symbole = symbole;
     }
     public String getNom() {
@@ -18,10 +18,10 @@ public class Joueur {
     public void setNom(String nom) {
         this.nom = nom; // setter nom de la classe Joueur
     }
-    public int getCouleur() {
+    public String getCouleur() {
         return couleur; // getter couleur de la classe Joueur
     }
-    public void setCouleur(int couleur) {
+    public void setCouleur(String couleur) {
         this.couleur = couleur; // setter couleur de la classe Joueur
     }
     public String getSymbole() {
