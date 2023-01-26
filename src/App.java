@@ -74,14 +74,14 @@ public class App {
             for(int u =0;u<42;u++){
 
                 System.out.print("Entrez une valeur : ");
-                int nombreEntier = scanner.nextInt();
+                int nombreEntier = scanner.nextInt()-1;
                 joueur1(lignes, nombreEntier,recupligne);
                 execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
 
                 //Rajout joueur 2 plus modif tout en bas de nombreEntier en nombreEnti changer les valeurs;
 
                 System.out.print("Entrez une valeur : ");
-                int nombreEntie = scanner.nextInt();
+                int nombreEntie = scanner.nextInt()-1;
                 joueur2(lignes, nombreEntie ,recupligne);
                 execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
 
@@ -110,14 +110,8 @@ public class App {
             if(lignes[i][nombreEntier] == " " && lignes[i][nombreEntier] != "@" && lignes[i][nombreEntier] != "="){
                 lignes[i][nombreEntier] = "@";
                 recupligne = i;
-                try{
-                    detectWin(lignes, nombreEntier, recupligne);
-                    System.out.println(recupligne);
-                    System.out.println(nombreEntier);
-                }catch(Exception e){
-                    System.out.println("test");
-                }
-                
+                detectWin(lignes, nombreEntier, recupligne);
+
                 break;
             }
         }
@@ -128,12 +122,7 @@ public class App {
             if(lignes[a][nombreEntier] == " " && lignes[a][nombreEntier] != "@" && lignes[a][nombreEntier] != "="){
                 lignes[a][nombreEntier] = "=";
                 recupligne = a;
-                try{
                 detectWin(lignes, nombreEntier, recupligne);
-                
-                }catch(Exception e){
-                    System.out.println("J2");
-                };
                 break;
             }
         }
@@ -141,26 +130,59 @@ public class App {
 
 //--------------------------------------
 
-    public static void detectWin(String[][]lignes, int nombreEntier,int recupligne){
+    public static void detectWin(String[][]lignes, int nombreEntier,int recupligne)throws Exception{
+
+        int checkWinExistance = 0;
 
         String caseCheck = lignes[recupligne][nombreEntier];
         int checkIncr = 1;
         String counterWin;
-        
-        String diagHautGauche = lignes[recupligne-1][nombreEntier-1];
-        String diagHautDroite = lignes[recupligne-1][nombreEntier+1];
-        String midGauche = lignes[recupligne][nombreEntier-1];
-        String midDroite = lignes[recupligne][nombreEntier+1];
-        String diagBasGauche = lignes[recupligne+1][nombreEntier-1];
-        String badMid = lignes[recupligne+1][nombreEntier];
-        String diagBasDroite = lignes[recupligne+1][nombreEntier+1];
 
-        //Bas gauche grille
-        if (recupligne > 2 && nombreEntier < 3){
-            System.out.println(midDroite);
-            System.out.println("test");
+        System.out.println(nombreEntier);
+
+        // try{
+        //     String midDroite = lignes[recupligne][nombreEntier+1+checkWinExistance];
+        // }catch(Exception e){
+
+        // }
+
+
+        
+        // String diagHautGauche = lignes[recupligne-1][nombreEntier-1];
+        // String diagHautDroite = lignes[recupligne-1][nombreEntier+1];
+
+
+        // String midGauche = lignes[recupligne][nombreEntier-1];
+
+        
+        // String diagBasGauche = lignes[recupligne+1][nombreEntier-1];
+        // String badMid = lignes[recupligne+1][nombreEntier];
+        // String diagBasDroite = lignes[recupligne+1][nombreEntier+1];
+
+        if(nombreEntier !=6){
+
+            String midDroite = lignes[recupligne][nombreEntier+1+checkWinExistance];
+
+            if (recupligne > 2 && nombreEntier < 4){
+            
+                for(int v =0 ;v<3;v++){
+                    checkWinExistance++;
+                    if(midDroite == caseCheck){
+                        System.out.println("Vous avez gagné !");
+                        return;
+                    }
+    
+                }
+                System.out.println(midDroite);
             }
+
         }
+
+
+            
+            
+            
+    }
         //bas droite grille
         // if (recupligne >= 3 && nombreEntier >= 3){
 
@@ -197,7 +219,7 @@ public class App {
             
 
         
-    }
+}
 
 
 
