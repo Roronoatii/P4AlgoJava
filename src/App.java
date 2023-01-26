@@ -1,10 +1,12 @@
 import java.util.Scanner;
+import java.text.BreakIterator;
 import java.util.Arrays;
-
+import model.Joueur;
 
 
 public class App {
 
+    static Scanner scanner = new Scanner(System.in);
     
     public static void main (String[] args) throws Exception{
         
@@ -43,12 +45,37 @@ public class App {
     }
     public static void singleplayerMenu(){
         System.out.println("---Singleplayer---");
-        System.out.println("");
+        System.out.println("Joueur 1, Entre un nom : ");
+        String nom = scanner.nextLine();
+        System.out.println("pick your color : ");
+        System.out.println("1. \033[31mRouge\033[0m");
+        System.out.println("2. \033[32mVert\033[0m");
+        System.out.println("3. \033[33mJaune\033[0m");
+        System.out.println("4. \033[34mBleu\033[0m");
+        System.out.println("5. \033[35mViolet\033[0m");
+        System.out.println("6. \033[36mCyan\033[0m");
+        int color = scanner.nextInt();
+        System.out.println("Choisis un symbole");
+        String logo = scanner.nextLine();
+        Joueur joueur = new Joueur(nom, color, logo);
+        System.out.println(joueur + "Choisis le niveau de difficulté");
+        int difficultyLvl = scanner.nextInt();
+        switch(difficultyLvl){
+            case 1:
+                grid();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+        }
+
     }
     public static void multiplayerMenu(){
         System.out.println("---Multiplayer---");
-        String joueur = Scanner.
-        System.out.println("");
+        //String joueur = scanner.nextLine();
     }
     public static int getMenuChoice() {
         Scanner scanner = new Scanner(System.in);
@@ -74,7 +101,7 @@ public class App {
 
         int recupligne = 1000;
 
-        Scanner scanner = new Scanner(System.in);
+        
         boolean w = true;
         while (w) {
 
@@ -182,6 +209,7 @@ public class App {
 
 
         }
+    }
         public static void detectWin2(String[][]lignes, int colonneJoueur2,int recupligne)throws Exception{
 
             String symbole = lignes[recupligne][colonneJoueur2];
