@@ -134,19 +134,31 @@ public class App {
 
         String symbole = lignes[recupligne][colonneJoueur1];
 
-        String midDroite = lignes[recupligne][colonneJoueur1+1];
-        System.out.println(recupligne);
-        System.out.println(colonneJoueur1);
+        int numberOfCheck =0;
+
+        int nombreALaSuite =1;
+
+        String midDroite = lignes[recupligne][colonneJoueur1+1+(numberOfCheck)];
 
         if(recupligne >2 && colonneJoueur1 <=3){
 
-            for(int v = 1;v<3;v++){
+            for(int v = 0;v<3;v++){
                 
                 if(midDroite == symbole){
-                    
-                }
 
+                    nombreALaSuite++;
+
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+
+                    numberOfCheck++;
+                }
             }
+
+            numberOfCheck =0;
+            nombreALaSuite =1;
 
 
         }
