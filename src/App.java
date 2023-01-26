@@ -106,16 +106,18 @@ public class App {
     }
 
     public static void joueur1(String[][] lignes,int nombreEntier, int recupligne) throws Exception {
-        for (int i = 5; i > -1; i--) {  
+        for (int i = 5; i >= 0; i--) {  
             if(lignes[i][nombreEntier] == " " && lignes[i][nombreEntier] != "@" && lignes[i][nombreEntier] != "="){
                 lignes[i][nombreEntier] = "@";
                 recupligne = i;
                 try{
                     detectWin(lignes, nombreEntier, recupligne);
-                    System.out.println(recupligne + recupligne);
+                    System.out.println(recupligne);
+                    System.out.println(nombreEntier);
                 }catch(Exception e){
-                    System.out.println("j1");
+                    System.out.println("test");
                 }
+                
                 break;
             }
         }
@@ -144,7 +146,7 @@ public class App {
         String caseCheck = lignes[recupligne][nombreEntier];
         int checkIncr = 1;
         String counterWin;
-
+        
         String diagHautGauche = lignes[recupligne-checkIncr][nombreEntier-checkIncr];
         String diagHautDroite = lignes[recupligne-checkIncr][nombreEntier+checkIncr];
         String midGauche = lignes[recupligne][nombreEntier-checkIncr];
@@ -154,21 +156,23 @@ public class App {
         String diagBasDroite = lignes[recupligne+checkIncr][nombreEntier+checkIncr];
 
         //Bas gauche grille
-        System.out.println(midDroite);
         if (recupligne >= 3 && nombreEntier <= 3){
-            if (caseCheck== midDroite){
+            System.out.println("truc");
+            if (caseCheck.equals(midDroite)){
                 for(int j = 1; j < 4; j ++){
                     j = checkIncr;
                     if (checkIncr == 3){
                         System.out.println("work");
                         //something with counterWin
                     }
-                    else if (checkIncr == 4){
+                    if (checkIncr == 4){
                         System.out.println("You Win !");
                     }
                 }
             }
-            // <while(caseCheck.equals(midDroite)){
+            System.out.println(checkIncr);
+
+            // while(caseCheck.equals(midDroite)){
             //     checkIncr ++;
             //     if (checkIncr == 3){
             //         System.out.println("work");
@@ -191,13 +195,6 @@ public class App {
         //haut droit grille
         if (recupligne <= 2 && nombreEntier >= 3){
 
-        }
-
-        if(caseCheck == diagBasGauche){
-            // System.out.println(nombreEntier);
-            // System.out.println(recupligne);
-            System.out.println(midDroite);
-            
         }
         
             
