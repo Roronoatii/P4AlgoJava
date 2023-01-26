@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.rmi.server.ExportException;
 import java.text.BreakIterator;
 import java.util.Arrays;
 import model.Joueur;
@@ -16,7 +17,7 @@ public class App {
             userchoice = getMenuChoice();
             switch (userchoice){
                 case 1:
-                    singleplayerMenu();
+                    singleplayerMenu(args);
                     //grid(args);
                     break;
                 case 2:
@@ -43,7 +44,7 @@ public class App {
         System.out.println("3. Display Top 10");
         System.out.println("4. Exit");
     }
-    public static void singleplayerMenu(){
+    public static void singleplayerMenu(String[] args)throws Exception{
         System.out.println("---Singleplayer---");
         System.out.println("Joueur 1, Entre un nom : ");
         String nom = scanner.nextLine();
@@ -62,7 +63,7 @@ public class App {
         int difficultyLvl = scanner.nextInt();
         switch(difficultyLvl){
             case 1:
-                grid();
+                grid(args);
                 break;
             case 2:
                 break;
