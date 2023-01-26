@@ -65,7 +65,7 @@ public class App {
         String[][] lignes = {ligne1, ligne2, ligne3, ligne4, ligne5, ligne6};
         execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
 
-        int recupligne = 3;
+        int recupligne = 1000;
 
         Scanner scanner = new Scanner(System.in);
         boolean w = true;
@@ -74,18 +74,18 @@ public class App {
             for(int u =0;u<42;u++){
 
                 System.out.print("Entrez une valeur : ");
-                int nombreEntier = scanner.nextInt()-1;
-                joueur1(lignes, nombreEntier,recupligne);
+                int colonneJoueur1 = scanner.nextInt();
+                joueur1(lignes, colonneJoueur1,recupligne);
                 execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
 
-                //Rajout joueur 2 plus modif tout en bas de nombreEntier en nombreEnti changer les valeurs;
+                //Rajout joueur 2 plus modif tout en bas de colonneJoueur1 en nombreEnti changer les valeurs;
 
                 System.out.print("Entrez une valeur : ");
-                int nombreEntie = scanner.nextInt()-1;
-                joueur2(lignes, nombreEntie ,recupligne);
+                int colonneJoueur2 = scanner.nextInt();
+                joueur2(lignes, colonneJoueur2 ,recupligne);
                 execTab(ligne1,ligne2,ligne3,ligne4,ligne5,ligne6);
 
-                if(nombreEntier == 10){
+                if(colonneJoueur1 == 10){
                     w = false;
                 }
 
@@ -105,24 +105,24 @@ public class App {
         System.out.println(Arrays.toString(ligne6));
     }
 
-    public static void joueur1(String[][] lignes,int nombreEntier, int recupligne) throws Exception {
+    public static void joueur1(String[][] lignes,int colonneJoueur1, int recupligne) throws Exception {
         for (int i = 5; i >= 0; i--) {  
-            if(lignes[i][nombreEntier] == " " && lignes[i][nombreEntier] != "@" && lignes[i][nombreEntier] != "="){
-                lignes[i][nombreEntier] = "@";
+            if(lignes[i][colonneJoueur1] == " " && lignes[i][colonneJoueur1] != "@" && lignes[i][colonneJoueur1] != "="){
+                lignes[i][colonneJoueur1] = "@";
                 recupligne = i;
-                detectWin(lignes, nombreEntier, recupligne);
+                detectWin1(lignes, colonneJoueur1, recupligne);
 
                 break;
             }
         }
     }
 
-    public static void joueur2(String[][] lignes,int nombreEntier,int recupligne) throws Exception{
+    public static void joueur2(String[][] lignes,int colonneJoueur2,int recupligne) throws Exception{
         for (int a = 5; a > 0; a--) {
-            if(lignes[a][nombreEntier] == " " && lignes[a][nombreEntier] != "@" && lignes[a][nombreEntier] != "="){
-                lignes[a][nombreEntier] = "=";
+            if(lignes[a][colonneJoueur2] == " " && lignes[a][colonneJoueur2] != "@" && lignes[a][colonneJoueur2] != "="){
+                lignes[a][colonneJoueur2] = "=";
                 recupligne = a;
-                detectWin(lignes, nombreEntier, recupligne);
+                // detectWin(lignes, colonneJoueur2, recupligne);
                 break;
             }
         }
@@ -130,96 +130,61 @@ public class App {
 
 //--------------------------------------
 
-    public static void detectWin(String[][]lignes, int nombreEntier,int recupligne)throws Exception{
+    public static void detectWin1(String[][]lignes, int colonneJoueur1,int recupligne)throws Exception{
 
-        int checkWinExistance = 0;
+        String symbole = lignes[recupligne][colonneJoueur1];
 
-        String caseCheck = lignes[recupligne][nombreEntier];
-        int checkIncr = 1;
-        String counterWin;
+        String midDroite = lignes[recupligne][colonneJoueur1+1];
+        System.out.println(recupligne);
+        System.out.println(colonneJoueur1);
 
-        System.out.println(nombreEntier);
+        if(recupligne >2 && colonneJoueur1 <=3){
 
-        // try{
-        //     String midDroite = lignes[recupligne][nombreEntier+1+checkWinExistance];
-        // }catch(Exception e){
-
-        // }
-
-
-        
-        // String diagHautGauche = lignes[recupligne-1][nombreEntier-1];
-        // String diagHautDroite = lignes[recupligne-1][nombreEntier+1];
-
-
-        // String midGauche = lignes[recupligne][nombreEntier-1];
-
-        
-        // String diagBasGauche = lignes[recupligne+1][nombreEntier-1];
-        // String badMid = lignes[recupligne+1][nombreEntier];
-        // String diagBasDroite = lignes[recupligne+1][nombreEntier+1];
-
-        if(nombreEntier !=6){
-
-            String midDroite = lignes[recupligne][nombreEntier+1+checkWinExistance];
-
-            if (recupligne > 2 && nombreEntier < 4){
-            
-                for(int v =0 ;v<3;v++){
-                    checkWinExistance++;
-                    if(midDroite == caseCheck){
-                        System.out.println("Vous avez gagné !");
-                        return;
-                    }
-    
+            for(int v = 1;v<3;v++){
+                
+                if(midDroite == symbole){
+                    
                 }
-                System.out.println(midDroite);
+
             }
+
 
         }
 
 
-            
-            
-            
-    }
-        //bas droite grille
-        // if (recupligne >= 3 && nombreEntier >= 3){
 
 
-        // }
-        //haut gauche grille
-        // if (recupligne <= 2 && nombreEntier <= 3){
-
-        // }
-        //haut droit grille
-        // if (recupligne <= 2 && nombreEntier >= 3){
-
-        // }
-        
-            
 
 
-                // for(int c=1;c<3;c++){
 
-                //     if(diagHautGauche == caseCheck){
 
-                //         diagHautGauche = lignes[recupligne-1-c][nombreEntier-1-c];
-                        
-                //         if(c == 3){
-                //             System.out.println("Victoire de"+caseCheck);
-                //         }
-                //     }else{
 
-                        
-                //         break;
-                //     }
 
-                // }
-            
+
+
+
+
+
+
+
+
+
 
         
-}
+        // String diagHautGauche = lignes[recupligne-1][colonneJoueur1-1];
+        // String diagHautDroite = lignes[recupligne-1][colonneJoueur1+1];
+
+
+        // String midGauche = lignes[recupligne][colonneJoueur1-1];
+
+
+        
+        // String diagBasGauche = lignes[recupligne+1][colonneJoueur1-1];
+        // String badMid = lignes[recupligne+1][colonneJoueur1];
+        // String diagBasDroite = lignes[recupligne+1][colonneJoueur1+1];
+
+        
+}}
 
 
 
