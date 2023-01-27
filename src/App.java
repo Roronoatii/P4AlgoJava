@@ -394,7 +394,6 @@ public class App {
                 }
             }
         }
-
     }
     public static void detectWin2(String[][]lignes, int colonneJoueur2,int recupligne)throws Exception{
         String symbole = lignes[recupligne][colonneJoueur2];
@@ -402,7 +401,15 @@ public class App {
         int nombreALaSuite =1;
         String midDroite = lignes[recupligne][colonneJoueur2+1+(numberOfCheck)];
         String diagHautDroite = lignes[recupligne-1+(-numberOfCheck)][colonneJoueur2+1+(numberOfCheck)];
+        String diagHautGauche = lignes[recupligne-1][colonneJoueur2-1];
+        String midGauche = lignes[recupligne][colonneJoueur2-1];
+        String diagBasGauche = lignes[recupligne+1][colonneJoueur2-1];
+        String badMid = lignes[recupligne+1][colonneJoueur2];
+        String diagBasDroite = lignes[recupligne+1][colonneJoueur2+1];
+        //bas gauche
         if(recupligne >3 && colonneJoueur2 <=4){
+            numberOfCheck =0;
+            nombreALaSuite =1;
             for(int v = 0;v<3;v++){
                 if(midDroite.equals(symbole)){
                     nombreALaSuite++;
@@ -429,10 +436,129 @@ public class App {
             }
             numberOfCheck =0;
             nombreALaSuite =1;
-        }        
-        
+        }
+        //bas droit
+        if(recupligne > 3 && colonneJoueur2 >= 3){
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(midGauche.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(midGauche);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(diagHautGauche.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(diagHautGauche);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+        }
+        //haut droit
+        if(recupligne < 4 && colonneJoueur2 < 3){
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(midGauche.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(midGauche);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(diagBasGauche.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(diagBasGauche);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(badMid.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(badMid);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+        }
+        //haut gauche
+        if(recupligne < 4){
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(midDroite.equals(symbole)){
+                    nombreALaSuite++;
+                    // System.out.println(midDroite);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }else {
+                        if (nombreALaSuite == 3){
+                            System.out.println("bot saved");
+                            // recupere nombrealasuite = 3, recupligne si supérieur a 1 donc save et colonnejoueur (centre du triple) just check +2 ou -2 selon la position
+                            
+                            break;
+                        }
+                        
+                    }
+                    numberOfCheck++;
+                }
+            }
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(badMid.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(badMid);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(diagBasDroite.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(diagBasDroite);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+        }
     }
-}
 
 
 
