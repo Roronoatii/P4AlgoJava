@@ -30,7 +30,7 @@ public class Joueur {
     public void setSymbole(String symbole) {
         this.symbole = symbole; // setter symbole de la classe Joueur
     }
-    public void SymboleCouleur() {
+    public void SymboleCouleur(String Symbole) {
         String symbole = this.getSymbole();
         String couleur = this.getCouleur();
     
@@ -47,5 +47,8 @@ public class Joueur {
         } else if (couleur.equals("Cyan")) {
             String joueurColorSymb = "\033[36m" + symbole + "\033[0m";
         }
+    }
+    public String getSymboleCouleur () {
+        return joueurColorSymb;
     }
 }
