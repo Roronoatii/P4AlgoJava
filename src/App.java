@@ -207,7 +207,7 @@ public class App {
         for (int i = 5; i >= 0; i--) {
             if (lignes[i][colonneJoueur1] == " " && lignes[i][colonneJoueur1] != "@"
                     && lignes[i][colonneJoueur1] != "=") {
-                lignes[i][colonneJoueur1] = Joueur.getsymbole();
+                lignes[i][colonneJoueur1] = "@";
                 recupligne = i;
                 detectWin1(lignes, colonneJoueur1, recupligne);
                 break;
