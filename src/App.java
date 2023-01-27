@@ -1,10 +1,7 @@
 import java.util.Scanner;
-import java.rmi.server.ExportException;
-import java.text.BreakIterator;
 import java.util.Arrays;
 import model.Joueur;
 import model.Joueur2;
-
 
 public class App {
 
@@ -19,7 +16,6 @@ public class App {
             switch (userchoice) {
                 case 1:
                     singleplayerMenu(args);
-                    // grid(args);
                     break;
                 case 2:
                     multiplayerMenu(args);
@@ -46,7 +42,8 @@ public class App {
         System.out.println("3- Display Top 10");
         System.out.println("4- Exit");
     }
-    public static void singleplayerMenu(String[] args)throws Exception{
+
+    public static void singleplayerMenu(String[] args) throws Exception {
         System.out.println("---Singleplayer---");
         System.out.println("Joueur 1, Entre un nom : ");
         String nom = scanner.nextLine();
@@ -77,11 +74,14 @@ public class App {
                                 grid(args);
                                 break;
                             case 2:
+                                grid(args);
                                 break;
                             case 3:
+                                grid(args);
                                 break;
                             case 4:
-                                break;
+                                grid(args);
+                                return;
                         }
                     } else {
                             System.out.println("Entre un chiffre entre 1 et 4");
@@ -92,9 +92,9 @@ public class App {
         }
     }
 
-    
     public static void multiplayerMenu(String[] args)throws Exception{
         System.out.println("---Multiplayer---");
+        //joueur 1
         System.out.println("Joueur 1, Entre un nom : ");
         String nom = scanner.nextLine();
         System.out.println("pick your color : ");
@@ -108,7 +108,7 @@ public class App {
         System.out.println("Choisis un symbole");
         String logo = scanner.nextLine();
         Joueur joueur1 = new Joueur(nom, color, logo);
-     
+        //Joueur 2
         System.out.println("Joueur 2, Entre un nom : ");
         String nom2 = scanner.nextLine();
         System.out.println("pick your color : ");
@@ -122,7 +122,7 @@ public class App {
         System.out.println("Choisis un symbole");
         String logo2 = scanner.nextLine();
         Joueur2 joueur2 = new Joueur2(nom2, color2, logo2);
-        //String joueur = scanner.nextLine();
+        grid(args);
     }
 
     public static int getMenuChoice() {
@@ -138,31 +138,33 @@ public class App {
 
     public static void grid(String[] args) throws Exception {
 
-        String[] ligne1 = { " ", " ", " ", " ", " ", " ", " " };
-        String[] ligne2 = { " ", " ", " ", " ", " ", " ", " " };
-        String[] ligne3 = { " ", " ", " ", " ", " ", " ", " " };
-        String[] ligne4 = { " ", " ", " ", " ", " ", " ", " " };
-        String[] ligne5 = { " ", " ", " ", " ", " ", " ", " " };
-        String[] ligne6 = { " ", " ", " ", " ", " ", " ", " " };
+        String[] ligneSuperStarStart =  {"*","*","*","*","*","*","*","*","*"};
+        String[] ligne1 =               {"*"," "," "," "," "," "," "," ","*"};
+        String[] ligne2 =               {"*"," "," "," "," "," "," "," ","*"};
+        String[] ligne3 =               {"*"," "," "," "," "," "," "," ","*"};
+        String[] ligne4 =               {"*"," "," "," "," "," "," "," ","*"};
+        String[] ligne5 =               {"*"," "," "," "," "," "," "," ","*"};
+        String[] ligne6 =               {"*"," "," "," "," "," "," "," ","*"};
+        String[] ligneSuperEnd =        {"*","*","*","*","*","*","*","*","*"};
 
-        String[][] lignes = { ligne1, ligne2, ligne3, ligne4, ligne5, ligne6 };
-        execTab(ligne1, ligne2, ligne3, ligne4, ligne5, ligne6);
+
+        String[][] lignes = {ligneSuperStarStart,ligne1, ligne2, ligne3, ligne4, ligne5, ligne6,ligneSuperEnd};
+        execTab(ligneSuperStarStart,ligne1,ligne2,ligne3,ligne4,ligne5,ligne6,ligneSuperEnd);
 
         int recupligne = 1000;
 
         boolean w = true;
         while (w) {
-
             for (int u = 0; u < 42; u++) {
                 while (true) {
                     System.out.print("Joueur 1, Entrez une valeur : ");
                     if (scanner.hasNextInt()) {
-                        int colonneJoueur1 = scanner.nextInt() - 1;
-                        if (colonneJoueur1 < 0 || colonneJoueur1 > 6) {
+                        int colonneJoueur1 = scanner.nextInt();
+                        if (colonneJoueur1 < 1 || colonneJoueur1 > 7) {
                             System.out.println("Entre un chiffre entre 1 et 7");
                         } else {
                             joueur1(lignes, colonneJoueur1, recupligne);
-                            execTab(ligne1, ligne2, ligne3, ligne4, ligne5, ligne6);
+                            execTab(ligneSuperStarStart,ligne1,ligne2,ligne3,ligne4,ligne5,ligne6,ligneSuperEnd);
                             break;
                         }
                     } else {
@@ -175,12 +177,12 @@ public class App {
                     // changer les valeurs;
                     System.out.print("Joueur 2, Entrez une valeur : ");
                     if (scanner.hasNextInt()) {
-                        int colonneJoueur2 = scanner.nextInt() - 1;
-                        if (colonneJoueur2 < 0 || colonneJoueur2 > 6) {
+                        int colonneJoueur2 = scanner.nextInt();
+                        if (colonneJoueur2 < 1 || colonneJoueur2 > 7) {
                             System.out.println("Entre un chiffre entre 1 et 7");
                         } else {
                             joueur2(lignes, colonneJoueur2, recupligne);
-                            execTab(ligne1, ligne2, ligne3, ligne4, ligne5, ligne6);
+                            execTab(ligneSuperStarStart,ligne1,ligne2,ligne3,ligne4,ligne5,ligne6,ligneSuperEnd);
                             break;
                         }
                     } else {
@@ -193,18 +195,19 @@ public class App {
         System.out.println("Done");
     }
 
-    public static void execTab(String[] ligne1, String[] ligne2, String[] ligne3, String[] ligne4, String[] ligne5,
-            String[] ligne6) {
+    public static void execTab(String[] ligneSuperStarStart,String[] ligne1, String[] ligne2, String[] ligne3, String[] ligne4, String[] ligne5, String[] ligne6,String[] ligneSuperEnd) {
+        System.out.println(Arrays.toString(ligneSuperStarStart));
         System.out.println(Arrays.toString(ligne1));
         System.out.println(Arrays.toString(ligne2));
         System.out.println(Arrays.toString(ligne3));
         System.out.println(Arrays.toString(ligne4));
         System.out.println(Arrays.toString(ligne5));
         System.out.println(Arrays.toString(ligne6));
+        System.out.println(Arrays.toString(ligneSuperEnd));
     }
 
     public static void joueur1(String[][] lignes, int colonneJoueur1, int recupligne) throws Exception {
-        for (int i = 5; i >= 0; i--) {
+        for (int i = 6; i >= 0; i--) {
             if (lignes[i][colonneJoueur1] == " " && lignes[i][colonneJoueur1] != "@"
                     && lignes[i][colonneJoueur1] != "=") {
                 lignes[i][colonneJoueur1] = "@";
@@ -216,7 +219,7 @@ public class App {
     }
 
     public static void joueur2(String[][] lignes, int colonneJoueur2, int recupligne) throws Exception {
-        for (int a = 5; a > 0; a--) {
+        for (int a = 6; a > 0; a--) {
             if (lignes[a][colonneJoueur2] == " " && lignes[a][colonneJoueur2] != "@"
                     && lignes[a][colonneJoueur2] != "=") {
                 lignes[a][colonneJoueur2] = "=";
@@ -226,93 +229,212 @@ public class App {
             }
         }
     }
+//--------------------------------------
 
-    // --------------------------------------
-
-    public static void detectWin1(String[][] lignes, int colonneJoueur1, int recupligne) throws Exception {
-
+    public static void detectWin1(String[][]lignes, int colonneJoueur1,int recupligne)throws Exception{
         String symbole = lignes[recupligne][colonneJoueur1];
-
-        int numberOfCheck = 0;
-
-        int nombreALaSuite = 1;
-
-        String midDroite = lignes[recupligne][colonneJoueur1 + 1 + (numberOfCheck)];
-
-        if (recupligne > 2 && colonneJoueur1 <= 3) {
-
-            for (int v = 0; v < 3; v++) {
-
-                if (midDroite == symbole) {
-
+        int numberOfCheck =0;
+        int nombreALaSuite =1;
+        String midDroite = lignes[recupligne][colonneJoueur1+1+(numberOfCheck)];
+        String diagHautDroite = lignes[recupligne-1+(-numberOfCheck)][colonneJoueur1+1+(numberOfCheck)];
+        String diagHautGauche = lignes[recupligne-1][colonneJoueur1-1];
+        String midGauche = lignes[recupligne][colonneJoueur1-1];
+        String diagBasGauche = lignes[recupligne+1][colonneJoueur1-1];
+        String badMid = lignes[recupligne+1][colonneJoueur1];
+        String diagBasDroite = lignes[recupligne+1][colonneJoueur1+1];
+        //bas gauche
+        if(recupligne >3 && colonneJoueur1 <=4){
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(midDroite.equals(symbole)){
                     nombreALaSuite++;
-<<<<<<< Updated upstream
-
-                    if (nombreALaSuite == 4) {
-=======
                     // System.out.println(midDroite);
                     if(nombreALaSuite == 4){
->>>>>>> Stashed changes
                         System.out.println("Vous avez gagné!");
                         break;
-                    } else {
+                    }
+                    numberOfCheck++;
+                }
+            }
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(diagHautDroite.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(diagHautDroite);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+            numberOfCheck =0;
+            nombreALaSuite =1;
+        }
+        //bas droit
+        if(recupligne > 3 && colonneJoueur1 >= 3){
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(midGauche.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(midGauche);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(diagHautGauche.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(diagHautGauche);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+        }
+        //haut droit
+        if(recupligne < 4 && colonneJoueur1 < 3){
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(midGauche.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(midGauche);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(diagBasGauche.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(diagBasGauche);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(badMid.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(badMid);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+        }
+        //haut gauche
+        if(recupligne < 4){
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(midDroite.equals(symbole)){
+                    nombreALaSuite++;
+                    // System.out.println(midDroite);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }else {
                         if (nombreALaSuite == 3){
                             System.out.println("bot saved");
                             // recupere nombrealasuite = 3, recupligne si supérieur a 1 donc save et colonnejoueur (centre du triple) just check +2 ou -2 selon la position
+                            
                             break;
                         }
+                        
                     }
-
                     numberOfCheck++;
                 }
             }
-
-            numberOfCheck = 0;
-            nombreALaSuite = 1;
-
-        }
-    }
-
-    public static void detectWin2(String[][] lignes, int colonneJoueur2, int recupligne) throws Exception {
-
-        String symbole = lignes[recupligne][colonneJoueur2];
-
-        int numberOfCheck = 0;
-
-        int nombreALaSuite = 1;
-
-        String midDroite = lignes[recupligne][colonneJoueur2 + 1 + (numberOfCheck)];
-
-        if (recupligne > 2 && colonneJoueur2 <= 3) {
-
-            for (int v = 0; v < 3; v++) {
-
-                if (midDroite == symbole) {
-
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(badMid.equals(symbole)){
                     nombreALaSuite++;
-
-                    if (nombreALaSuite == 4) {
+                    System.out.println(badMid);
+                    if(nombreALaSuite == 4){
                         System.out.println("Vous avez gagné!");
                         break;
                     }
-
                     numberOfCheck++;
                 }
             }
-
-            numberOfCheck = 0;
-            nombreALaSuite = 1;
-
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(diagBasDroite.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(diagBasDroite);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
         }
 
-        // String diagHautGauche = lignes[recupligne-1][colonneJoueur1-1];
-        // String diagHautDroite = lignes[recupligne-1][colonneJoueur1+1];
-
-        // String midGauche = lignes[recupligne][colonneJoueur1-1];
-
-        // String diagBasGauche = lignes[recupligne+1][colonneJoueur1-1];
-        // String badMid = lignes[recupligne+1][colonneJoueur1];
-        // String diagBasDroite = lignes[recupligne+1][colonneJoueur1+1];
-
+    }
+    public static void detectWin2(String[][]lignes, int colonneJoueur2,int recupligne)throws Exception{
+        String symbole = lignes[recupligne][colonneJoueur2];
+        int numberOfCheck =0;
+        int nombreALaSuite =1;
+        String midDroite = lignes[recupligne][colonneJoueur2+1+(numberOfCheck)];
+        String diagHautDroite = lignes[recupligne-1+(-numberOfCheck)][colonneJoueur2+1+(numberOfCheck)];
+        if(recupligne >3 && colonneJoueur2 <=4){
+            for(int v = 0;v<3;v++){
+                if(midDroite.equals(symbole)){
+                    nombreALaSuite++;
+                    // System.out.println(midDroite);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+            numberOfCheck =0;
+            nombreALaSuite =1;
+            for(int v = 0;v<3;v++){
+                if(diagHautDroite.equals(symbole)){
+                    nombreALaSuite++;
+                    System.out.println(diagHautDroite);
+                    if(nombreALaSuite == 4){
+                        System.out.println("Vous avez gagné!");
+                        break;
+                    }
+                    numberOfCheck++;
+                }
+            }
+            numberOfCheck =0;
+            nombreALaSuite =1;
+        }        
+        
     }
 }
+
+
+
+
+
