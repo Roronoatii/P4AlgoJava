@@ -246,10 +246,21 @@ public class App {
                 if (midDroite == symbole) {
 
                     nombreALaSuite++;
+<<<<<<< Updated upstream
 
                     if (nombreALaSuite == 4) {
+=======
+                    // System.out.println(midDroite);
+                    if(nombreALaSuite == 4){
+>>>>>>> Stashed changes
                         System.out.println("Vous avez gagné!");
                         break;
+                    } else {
+                        if (nombreALaSuite == 3){
+                            System.out.println("bot saved");
+                            // recupere nombrealasuite = 3, recupligne si supérieur a 1 donc save et colonnejoueur (centre du triple) just check +2 ou -2 selon la position
+                            break;
+                        }
                     }
 
                     numberOfCheck++;
