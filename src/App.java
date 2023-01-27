@@ -210,7 +210,7 @@ public class App {
         for (int i = 6; i >= 0; i--) {
             if (lignes[i][colonneJoueur1] == " " && lignes[i][colonneJoueur1] != "@"
                     && lignes[i][colonneJoueur1] != "=") {
-                lignes[i][colonneJoueur1] = joueur
+                lignes[i][colonneJoueur1] = "@";
                 recupligne = i;
                 detectWin1(lignes, colonneJoueur1, recupligne);
                 break;
@@ -247,20 +247,12 @@ public class App {
             numberOfCheck =0;
             nombreALaSuite =1;
             for(int v = 0;v<3;v++){
-                if(midDroite == symbole){
+                if(midDroite.equals(symbole)){
                     nombreALaSuite++;
                     // System.out.println(midDroite);
                     if(nombreALaSuite == 4){
                         System.out.println("Vous avez gagné!");
                         break;
-                    }else {
-                        if (nombreALaSuite == 3){
-                            System.out.println("bot saved");
-                            // recupere nombrealasuite = 3, recupligne si supérieur a 1 donc save et colonnejoueur (centre du triple) just check +2 ou -2 selon la position
-                            
-                            break;
-                        }
-                        
                     }
                     numberOfCheck++;
                 }
@@ -268,7 +260,7 @@ public class App {
             numberOfCheck =0;
             nombreALaSuite =1;
             for(int v = 0;v<3;v++){
-                if(diagHautDroite == symbole){
+                if(diagHautDroite.equals(symbole)){
                     nombreALaSuite++;
                     System.out.println(diagHautDroite);
                     if(nombreALaSuite == 4){
@@ -286,7 +278,7 @@ public class App {
             numberOfCheck =0;
             nombreALaSuite =1;
             for(int v = 0;v<3;v++){
-                if(midGauche == symbole){
+                if(midGauche.equals(symbole)){
                     nombreALaSuite++;
                     System.out.println(midGauche);
                     if(nombreALaSuite == 4){
@@ -299,7 +291,7 @@ public class App {
             numberOfCheck =0;
             nombreALaSuite =1;
             for(int v = 0;v<3;v++){
-                if(diagHautGauche == symbole){
+                if(diagHautGauche.equals(symbole)){
                     nombreALaSuite++;
                     System.out.println(diagHautGauche);
                     if(nombreALaSuite == 4){
@@ -315,7 +307,7 @@ public class App {
             numberOfCheck =0;
             nombreALaSuite =1;
             for(int v = 0;v<3;v++){
-                if(midGauche == symbole){
+                if(midGauche.equals(symbole)){
                     nombreALaSuite++;
                     System.out.println(midGauche);
                     if(nombreALaSuite == 4){
@@ -328,7 +320,7 @@ public class App {
             numberOfCheck =0;
             nombreALaSuite =1;
             for(int v = 0;v<3;v++){
-                if(diagBasGauche == symbole){
+                if(diagBasGauche.equals(symbole)){
                     nombreALaSuite++;
                     System.out.println(diagBasGauche);
                     if(nombreALaSuite == 4){
@@ -341,7 +333,7 @@ public class App {
             numberOfCheck =0;
             nombreALaSuite =1;
             for(int v = 0;v<3;v++){
-                if(badMid == symbole){
+                if(badMid.equals(symbole)){
                     nombreALaSuite++;
                     System.out.println(badMid);
                     if(nombreALaSuite == 4){
@@ -357,7 +349,7 @@ public class App {
             numberOfCheck =0;
             nombreALaSuite =1;
             for(int v = 0;v<3;v++){
-                if(midDroite == symbole){
+                if(midDroite.equals(symbole)){
                     nombreALaSuite++;
                     // System.out.println(midDroite);
                     if(nombreALaSuite == 4){
@@ -378,7 +370,7 @@ public class App {
             numberOfCheck =0;
             nombreALaSuite =1;
             for(int v = 0;v<3;v++){
-                if(badMid == symbole){
+                if(badMid.equals(symbole)){
                     nombreALaSuite++;
                     System.out.println(badMid);
                     if(nombreALaSuite == 4){
@@ -391,7 +383,7 @@ public class App {
             numberOfCheck =0;
             nombreALaSuite =1;
             for(int v = 0;v<3;v++){
-                if(diagBasDroite == symbole){
+                if(diagBasDroite.equals(symbole)){
                     nombreALaSuite++;
                     System.out.println(diagBasDroite);
                     if(nombreALaSuite == 4){
@@ -412,7 +404,7 @@ public class App {
         String diagHautDroite = lignes[recupligne-1+(-numberOfCheck)][colonneJoueur2+1+(numberOfCheck)];
         if(recupligne >3 && colonneJoueur2 <=4){
             for(int v = 0;v<3;v++){
-                if(midDroite == symbole){
+                if(midDroite.equals(symbole)){
                     nombreALaSuite++;
                     // System.out.println(midDroite);
                     if(nombreALaSuite == 4){
@@ -425,7 +417,7 @@ public class App {
             numberOfCheck =0;
             nombreALaSuite =1;
             for(int v = 0;v<3;v++){
-                if(diagHautDroite == symbole){
+                if(diagHautDroite.equals(symbole)){
                     nombreALaSuite++;
                     System.out.println(diagHautDroite);
                     if(nombreALaSuite == 4){
